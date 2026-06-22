@@ -591,6 +591,10 @@ main {
   max-width: 720px;
   width: 100%;
   padding: 20px;
+  /* Garantiza que un mensaje largo se vea COMPLETO: si excede la pantalla,
+     la tarjeta hace scroll en lugar de recortar el texto */
+  max-height: 92vh;
+  overflow-y: auto;
 }
 .winner-logo {
   width: 76px;
@@ -995,6 +999,12 @@ main {
     if (userIdx === -1) userIdx = 0;
     if (textIdx === -1) textIdx = 1;
 
+    // El mensaje es el ÚLTIMO campo libre. Si un comentario trae comas sin
+    // comillas (ej. "Papá, gracias por..."), el parser lo divide en varias
+    // columnas; cuando el texto es la última columna unimos todo lo que venga
+    // desde textIdx para no perder el mensaje completo.
+    const textIsTrailing = textIdx >= userIdx;
+
     const dataRows = hasHeader ? rows.slice(1) : rows;
 
     const stats = { total: 0, valid: 0, emoji: 0, noMsg: 0, dup: 0, client: 0 };
@@ -1003,7 +1013,10 @@ main {
 
     for (const r of dataRows) {
       const username = cleanUsername(r[userIdx]);
-      const message = (r[textIdx] || '').toString().trim();
+      const message = (textIsTrailing
+        ? r.slice(textIdx).join(',')   // reúne el mensaje aunque tenga comas
+        : (r[textIdx] || '')
+      ).toString().trim();
       if (!username) continue;
       stats.total++;
 
