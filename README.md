@@ -5,14 +5,14 @@ Día del Padre de **Alex Boots (Ranchers Boot Co.)**. Una ruleta animada
 muestra los participantes y, al detenerse, despliega el mensaje completo que
 el ganador escribió para su papá.
 
-Todo vive en **un solo archivo**: `alexboots-giveaway-ruleta.html`. Sin build,
+Todo vive en **un solo archivo**: `index.html`. Sin build,
 sin Node, sin dependencias locales.
 
 ---
 
 ## Cómo abrir
 
-Haz doble click en `alexboots-giveaway-ruleta.html` o ábrelo en cualquier
+Haz doble click en `index.html` o ábrelo en cualquier
 navegador moderno (Chrome, Edge, Safari, Firefox).
 
 > Requiere conexión a internet la primera vez, ya que carga Google Fonts,
