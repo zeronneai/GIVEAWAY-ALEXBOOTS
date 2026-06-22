@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Alex Boots · Giveaway Día del Padre</title>
+<title>Alex Boots · Father's Day Giveaway</title>
 
 <!-- ════════════════════════════════════════════════════════
      TIPOGRAFÍA — Google Fonts (Playfair Display, Inter, Bebas Neue)
@@ -729,18 +729,18 @@ main {
      ════════════════════════════════════════════════════════ -->
 <header>
   <div class="header-logo">
-    <img src="https://res.cloudinary.com/dsprn0ew4/image/upload/v1770659719/ChatGPT_Image_Feb_9_2026_11_54_22_AM_tc6n1w.png" alt="Alex Boots · Ranchers Boot Co." />
+    <img src="https://res.cloudinary.com/dsprn0ew4/image/upload/v1770659719/ChatGPT_Image_Feb_9_2026_11_54_22_AM_tc6n1w.png" alt="Alex Boots" />
   </div>
   <div class="header-title">
-    <h1>Giveaway Día del Padre</h1>
+    <h1>Father's Day Giveaway</h1>
     <div class="sub">ALEX BOOTS</div>
   </div>
   <div class="header-meta">
     <div class="counter">
       <div class="num" id="participantCount">0</div>
-      <div class="lbl">PARTICIPANTES</div>
+      <div class="lbl">PARTICIPANTS</div>
     </div>
-    <button class="icon-btn" id="toggleSidebar" title="Ver participantes">
+    <button class="icon-btn" id="toggleSidebar" title="View participants">
       <i data-lucide="menu"></i>
     </button>
   </div>
@@ -750,16 +750,16 @@ main {
   <!-- ── Panel de importación ──────────────────────────── -->
   <section class="import-panel" id="importPanel">
     <div class="import-head" id="importHead">
-      <span class="label"><i data-lucide="download"></i> IMPORTAR PARTICIPANTES</span>
+      <span class="label"><i data-lucide="download"></i> IMPORT PARTICIPANTS</span>
       <span class="chev"><i data-lucide="chevron-down"></i></span>
     </div>
     <div class="import-body">
       <button class="btn-import" id="btnImport">
-        <i data-lucide="file-spreadsheet"></i> IMPORTAR COMENTARIOS (CSV)
+        <i data-lucide="file-spreadsheet"></i> IMPORT COMMENTS (CSV)
       </button>
       <p class="import-hint">
-        Formato Commentpicker · columnas <strong>username, text</strong> ·
-        se filtran emojis, menciones vacías y duplicados automáticamente.
+        Commentpicker format · columns <strong>username, text</strong> ·
+        emojis, empty mentions and duplicates are filtered automatically.
       </p>
       <input type="file" id="csvInput" accept=".csv,text/csv" style="display:none" />
     </div>
@@ -767,19 +767,19 @@ main {
 
   <!-- ── Ruleta (hero) ─────────────────────────────────── -->
   <section class="ruleta-section">
-    <div class="ruleta-eyebrow"><span class="line"></span> EL SORTEO <span class="line"></span></div>
+    <div class="ruleta-eyebrow"><span class="line"></span> THE DRAW <span class="line"></span></div>
 
     <div class="wheel-wrap">
       <div class="pointer"></div>
       <canvas id="wheelCanvas" width="600" height="600"></canvas>
       <div class="wheel-hub"></div>
       <div class="empty-wheel-msg" id="emptyMsg">
-        Importa los comentarios del giveaway<br>para comenzar el sorteo
+        Import the giveaway comments<br>to start the draw
       </div>
     </div>
 
-    <button class="btn-spin" id="btnSpin" disabled>GIRAR RULETA</button>
-    <div class="spin-hint">PRESIONA ESPACIO PARA GIRAR</div>
+    <button class="btn-spin" id="btnSpin" disabled>SPIN THE WHEEL</button>
+    <div class="spin-hint">PRESS SPACE TO SPIN</div>
   </section>
 </main>
 
@@ -788,13 +788,13 @@ main {
      ════════════════════════════════════════════════════════ -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-head">
-    <h2>Participantes</h2>
+    <h2>Participants</h2>
     <button class="icon-btn" id="closeSidebar"><i data-lucide="x"></i></button>
   </div>
   <div class="sidebar-list" id="sidebarList"></div>
   <div class="sidebar-foot">
-    <button class="btn-ghost" id="exportJsonBtn"><i data-lucide="save"></i> EXPORTAR JSON</button>
-    <button class="btn-ghost danger" id="clearAllBtn"><i data-lucide="trash-2"></i> VACIAR TODO</button>
+    <button class="btn-ghost" id="exportJsonBtn"><i data-lucide="save"></i> EXPORT JSON</button>
+    <button class="btn-ghost danger" id="clearAllBtn"><i data-lucide="trash-2"></i> CLEAR ALL</button>
   </div>
 </aside>
 
@@ -803,17 +803,17 @@ main {
      ════════════════════════════════════════════════════════ -->
 <div class="overlay" id="previewOverlay">
   <div class="modal-card">
-    <h3>Vista previa de importación</h3>
-    <p class="modal-sub">Revisa los resultados antes de confirmar.</p>
-    <div class="stat-row"><span class="k">Total leídos</span><span class="v" id="stTotal">0</span></div>
-    <div class="stat-row ok"><span class="k">Válidos a importar</span><span class="v" id="stValid">0</span></div>
-    <div class="stat-row muted"><span class="k">Excluidos · solo emojis</span><span class="v" id="stEmoji">0</span></div>
-    <div class="stat-row muted"><span class="k">Excluidos · sin mensaje real</span><span class="v" id="stNoMsg">0</span></div>
-    <div class="stat-row muted"><span class="k">Excluidos · duplicados</span><span class="v" id="stDup">0</span></div>
-    <div class="stat-row muted"><span class="k">Excluidos · cuenta del cliente</span><span class="v" id="stClient">0</span></div>
+    <h3>Import preview</h3>
+    <p class="modal-sub">Review the results before confirming.</p>
+    <div class="stat-row"><span class="k">Total read</span><span class="v" id="stTotal">0</span></div>
+    <div class="stat-row ok"><span class="k">Valid to import</span><span class="v" id="stValid">0</span></div>
+    <div class="stat-row muted"><span class="k">Excluded · emojis only</span><span class="v" id="stEmoji">0</span></div>
+    <div class="stat-row muted"><span class="k">Excluded · no real message</span><span class="v" id="stNoMsg">0</span></div>
+    <div class="stat-row muted"><span class="k">Excluded · duplicates</span><span class="v" id="stDup">0</span></div>
+    <div class="stat-row muted"><span class="k">Excluded · client account</span><span class="v" id="stClient">0</span></div>
     <div class="modal-actions">
-      <button class="btn-secondary" id="cancelImport">CANCELAR</button>
-      <button class="btn-primary" id="confirmImport">CONFIRMAR IMPORTACIÓN</button>
+      <button class="btn-secondary" id="cancelImport">CANCEL</button>
+      <button class="btn-primary" id="confirmImport">CONFIRM IMPORT</button>
     </div>
   </div>
 </div>
@@ -824,18 +824,18 @@ main {
 <div class="winner-overlay" id="winnerOverlay">
   <div class="winner-card">
     <div class="winner-logo"></div>
-    <div class="winner-eyebrow"><span class="dot">·</span> GANADOR <span class="dot">·</span></div>
-    <div class="winner-handle" id="winnerHandle">@usuario</div>
-    <div class="winner-msg-label"><span class="line"></span> SU MENSAJE <span class="line"></span></div>
+    <div class="winner-eyebrow"><span class="dot">·</span> WINNER <span class="dot">·</span></div>
+    <div class="winner-handle" id="winnerHandle">@username</div>
+    <div class="winner-msg-label"><span class="line"></span> THEIR MESSAGE <span class="line"></span></div>
     <div class="winner-msg-block">
       <span class="quote open">&#10077;</span>
       <div id="winnerMessage"></div>
       <span class="quote close">&#10078;</span>
     </div>
     <div class="winner-actions">
-      <button class="wa-again" id="spinAgainBtn">GIRAR DE NUEVO</button>
-      <button class="wa-save" id="saveWinnerBtn">GUARDAR GANADOR</button>
-      <button class="wa-close" id="closeWinnerBtn">CERRAR</button>
+      <button class="wa-again" id="spinAgainBtn">SPIN AGAIN</button>
+      <button class="wa-save" id="saveWinnerBtn">SAVE WINNER</button>
+      <button class="wa-close" id="closeWinnerBtn">CLOSE</button>
     </div>
   </div>
 </div>
@@ -928,7 +928,7 @@ main {
   }
 
   function nowStamp() {
-    return new Date().toLocaleString('es-MX', {
+    return new Date().toLocaleString('en-US', {
       day: 'numeric', month: 'numeric', year: 'numeric',
       hour: '2-digit', minute: '2-digit'
     });
@@ -993,7 +993,7 @@ main {
      ────────────────────────────────────────────────────── */
   function processImport(content) {
     const rows = parseCSV(content);
-    if (!rows.length) { toast('El archivo CSV está vacío.'); return null; }
+    if (!rows.length) { toast('The CSV file is empty.'); return null; }
 
     let { userIdx, textIdx, hasHeader } = detectColumns(rows[0]);
     if (userIdx === -1) userIdx = 0;
@@ -1140,7 +1140,7 @@ main {
      ────────────────────────────────────────────────────── */
   function spin() {
     if (spinning) return;
-    if (participants.length < 1) { toast('No hay participantes para sortear.'); return; }
+    if (participants.length < 1) { toast('No participants to draw from.'); return; }
     if (participants.length === 1) {
       // Un único participante: gana directo tras un giro corto
       announceWinner(0);
@@ -1308,8 +1308,8 @@ main {
     saveWinners();
 
     // Exportar JSON descargable
-    downloadJSON(record, 'ganador-alexboots-' + Date.now() + '.json');
-    toast('Ganador guardado y exportado.');
+    downloadJSON(record, 'winner-alexboots-' + Date.now() + '.json');
+    toast('Winner saved and exported.');
   }
 
   function downloadJSON(obj, filename) {
@@ -1329,7 +1329,7 @@ main {
     const list = $('sidebarList');
     list.innerHTML = '';
     if (!participants.length) {
-      list.innerHTML = '<div class="sidebar-empty">Aún no hay participantes.<br>Importa el CSV del giveaway.</div>';
+      list.innerHTML = '<div class="sidebar-empty">No participants yet.<br>Import the giveaway CSV.</div>';
       return;
     }
     participants.forEach((p) => {
@@ -1341,7 +1341,7 @@ main {
           '<div class="handle"></div>' +
           '<div class="preview"></div>' +
         '</div>' +
-        '<button class="del-btn" title="Eliminar"><i data-lucide="trash-2"></i></button>';
+        '<button class="del-btn" title="Delete"><i data-lucide="trash-2"></i></button>';
       row.querySelector('.handle').textContent = p.handle;
       row.querySelector('.preview').textContent = preview;
       row.querySelector('.del-btn').addEventListener('click', () => removeParticipant(p.id));
@@ -1372,21 +1372,21 @@ main {
      ────────────────────────────────────────────────────── */
   function loadDemo() {
     const demo = [
-      ['marcos_rdz', 'Papá, gracias por enseñarme a trabajar duro y por ser el hombre más fuerte que conozco. Te admiro cada día.'],
-      ['lucia.fernandez', 'A mi papá que me enseñó a montar a caballo antes que a caminar. Eres mi héroe, viejo.'],
-      ['el_charro_99', 'Pa, cada par de botas que usas me recuerda de dónde venimos. Gracias por nunca rendirte por nosotros.'],
-      ['anamaria_glz', 'Papá, eres el primer hombre que amé y el ejemplo de todo lo que busco. Feliz día.'],
-      ['santiago.torres', 'Para el ranchero más noble: mi padre. Gracias por las madrugadas, el sudor y el amor callado.'],
-      ['valeria_m', 'Mi papá me enseñó que la elegancia es humildad con botas bien lustradas. Te amo, jefe.'],
-      ['don_ramiro', 'A mi viejo, que cruzó la frontera con un sueño y unas botas gastadas. Hoy te honro con todo.'],
-      ['carolina.vega', 'Papá, gracias por enseñarme que un hombre de verdad se mide por su palabra. Eres mi todo.']
+      ['marcos_rdz', 'Dad, thank you for teaching me to work hard and for being the strongest man I know. I look up to you every day.'],
+      ['lucia.fernandez', 'To my dad, who taught me to ride a horse before I could walk. You are my hero, old man.'],
+      ['el_charro_99', 'Pops, every pair of boots you wear reminds me where we come from. Thank you for never giving up on us.'],
+      ['anamaria_glz', 'Dad, you are the first man I ever loved and the example of everything I look for. Happy Father’s Day.'],
+      ['santiago.torres', 'For the most noble rancher: my father. Thank you for the early mornings, the sweat and the quiet love.'],
+      ['valeria_m', 'My dad taught me that elegance is humility with well-polished boots. I love you, boss.'],
+      ['don_ramiro', 'To my old man, who crossed the border with a dream and a worn pair of boots. Today I honor you with all I have.'],
+      ['carolina.vega', 'Dad, thank you for teaching me that a real man is measured by his word. You are my everything.']
     ];
     participants = demo.map(([u, m]) => ({
       id: genId(), username: u, handle: '@' + u, message: m, importedAt: nowStamp()
     }));
     saveParticipants();
     refreshUI();
-    toast('Modo demo: 8 participantes cargados.');
+    toast('Demo mode: 8 participants loaded.');
   }
 
   /* ──────────────────────────────────────────────────────
@@ -1424,17 +1424,17 @@ main {
     $('toggleSidebar').addEventListener('click', () => $('sidebar').classList.toggle('open'));
     $('closeSidebar').addEventListener('click', () => $('sidebar').classList.remove('open'));
     $('exportJsonBtn').addEventListener('click', () => {
-      if (!participants.length) { toast('No hay participantes para exportar.'); return; }
-      downloadJSON({ participants, exportedAt: new Date().toISOString() }, 'participantes-alexboots.json');
-      toast('Participantes exportados.');
+      if (!participants.length) { toast('No participants to export.'); return; }
+      downloadJSON({ participants, exportedAt: new Date().toISOString() }, 'participants-alexboots.json');
+      toast('Participants exported.');
     });
     $('clearAllBtn').addEventListener('click', () => {
-      if (!participants.length) { toast('La lista ya está vacía.'); return; }
-      if (confirm('¿Vaciar TODOS los participantes? Esta acción no se puede deshacer.')) {
+      if (!participants.length) { toast('The list is already empty.'); return; }
+      if (confirm('Clear ALL participants? This action cannot be undone.')) {
         participants = [];
         saveParticipants();
         refreshUI();
-        toast('Lista vaciada.');
+        toast('List cleared.');
       }
     });
 
@@ -1492,7 +1492,7 @@ main {
     pendingImport = [];
     $('previewOverlay').classList.remove('show');
     refreshUI();
-    toast(participants.length + ' participantes en el sorteo.');
+    toast(participants.length + ' participants in the draw.');
   }
 
   /* ──────────────────────────────────────────────────────
